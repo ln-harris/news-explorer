@@ -1,0 +1,81 @@
+.nav {
+  width: 100%;
+  height: 80px;
+  padding: 0 104px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav__logo {
+  width: 200px;
+  height: 24px;
+
+  color: #fff;
+  font-family: "Roboto Slab", Georgia, serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 24px;
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav__links {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 42px;
+  list-style: none;
+}
+.nav__item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav__home {
+  width: 68px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-decoration: none;
+
+  border-bottom: 3px solid #fff;
+  cursor: pointer;
+}
+
+.nav__button {
+  width: 176px;
+  height: 48px;
+  padding: 0;
+
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 100px;
+
+  color: #fff;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+
+  cursor: pointer;
+}
+
+.nav__button:hover {
+  opacity: 0.8;
+}
