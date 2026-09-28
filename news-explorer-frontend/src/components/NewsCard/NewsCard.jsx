@@ -23,12 +23,14 @@ function NewsCard({ article }) {
           alt={article.title}
           className="news-card__image"
         />
-        <time datetime={article.publishedAt} className="news-card__date">
-          {formattedDate}
-        </time>
-        <h3 className="news-card__title">{article.title}</h3>
-        <p className="news-card__description">{article.description}</p>
-        <p className="news-card__source">{article.source.name}</p>
+        <div className="news-card__content">
+          <time datetime={article.publishedAt} className="news-card__date">
+            {formattedDate}
+          </time>
+          <h3 className="news-card__title">{article.title}</h3>
+          <p className="news-card__description">{article.description}</p>
+          <p className="news-card__source">{article.source.name}</p>
+        </div>
       </a>
       <button
         type="button"
