@@ -2,11 +2,30 @@ import Header from "../Header/Header.jsx";
 import About from "../About/About.jsx";
 import Footer from "../Footer/Footer.jsx";
 import "./Main.css";
+import { getNews } from "../../utils/NewsApi.js";
+import { useState } from "react";
 
 function Main() {
+  const [articles, setArticles] = useState([]);
+  const [searchedKeyword, setSearchedKeyword] = useState("");
+  const [searchError, setSearchError] = useState("");
+
+  function handleSearch(keyword) {
+    setSearchError("");
+    setSearchedKeyword(keyword);
+    getNews(keyword)
+      .then((data) => {
+        setArticles(data.articles);
+      })
+      .catch((error) => {
+        setArticles([]);
+        setSearchError(error);
+      });
+  }
+
   return (
     <>
-      <Header />
+      <Header onSearch={handleSearch} />
       <main>
         <About />
       </main>

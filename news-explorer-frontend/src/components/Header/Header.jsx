@@ -2,7 +2,7 @@ import Navigation from "../Navigation/Navigation.jsx";
 import SearchForm from "../SearchForm/SearchForm.jsx";
 import "./Header.css";
 
-function Header() {
+function Header({ onSearch }) {
   return (
     <header className="header">
       <Navigation />
@@ -15,7 +15,7 @@ function Header() {
         </p>
       </div>
 
-      <SearchForm />
+      <SearchForm onSearch={onSearch} />
     </header>
   );
 }
