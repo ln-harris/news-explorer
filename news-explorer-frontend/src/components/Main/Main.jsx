@@ -1,5 +1,6 @@
 import Header from "../Header/Header.jsx";
 import About from "../About/About.jsx";
+import NewCardList from "../NewCardList/NewCardList.jsx";
 import Footer from "../Footer/Footer.jsx";
 import "./Main.css";
 import { getNews } from "../../utils/NewsApi.js";
@@ -27,6 +28,7 @@ function Main() {
     <>
       <Header onSearch={handleSearch} />
       <main>
+        {articles.length > 0 && <NewCardList articles={articles} />}
         <About />
       </main>
       <Footer />
