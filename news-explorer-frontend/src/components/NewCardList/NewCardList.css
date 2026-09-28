@@ -22,3 +22,28 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
+
+.news-card-list__button {
+  display: block;
+  width: 288px;
+  height: 64px;
+  margin: 64px auto 0;
+  padding: 0;
+
+  color: rgba(26, 27, 34, 1);
+  background-color: #fff;
+  border: none;
+  border-radius: 80px;
+
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+
+  cursor: pointer;
+}
+
+.news-card-list__button:hover {
+  background-color: rgba(232, 232, 232, 1);
+  opacity: 0.9;
+}
