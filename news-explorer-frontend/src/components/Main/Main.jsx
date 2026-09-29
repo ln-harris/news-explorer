@@ -7,17 +7,14 @@ import { getNews } from "../../utils/NewsApi.js";
 import { useState } from "react";
 import Preloader from "../Preloader/Preloader.jsx";
 import NothingFound from "../NothingFound/NothingFound.jsx";
-import SearchError from "../SearchError/SearchError.jsx";
 
 function Main() {
   const [articles, setArticles] = useState([]);
   const [searchedKeyword, setSearchedKeyword] = useState("");
-  const [searchError, setSearchError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   function handleSearch(keyword) {
     setIsLoading(true);
-    setSearchError("");
     setArticles([]);
     setSearchedKeyword(keyword);
     getNews(keyword)
@@ -42,11 +39,9 @@ function Main() {
         {!isLoading && articles.length > 0 && (
           <NewCardList key={searchedKeyword} articles={articles} />
         )}
-        {!isLoading &&
-          searchedKeyword !== "" &&
-          !searchError &&
-          articles.length === 0 && <NothingFound />}
-        {!isLoading && searchError && <SearchError />}
+        {!isLoading && searchedKeyword !== "" && articles.length === 0 && (
+          <NothingFound />
+        )}
         <About />
       </main>
       <Footer />
