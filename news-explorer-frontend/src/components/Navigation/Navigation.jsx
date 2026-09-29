@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Navigation.css";
 
-function Navigation() {
+function Navigation({ onLoginClick }) {
   return (
     <nav className="nav">
       <Link to="/" className="nav__logo">
@@ -16,7 +16,7 @@ function Navigation() {
         </li>
 
         <li className="nav__item">
-          <button type="button" className="nav__button">
+          <button type="button" className="nav__button" onClick={onLoginClick}>
             Sign in
           </button>
         </li>
