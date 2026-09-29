@@ -6,6 +6,8 @@ import Footer from "../Footer/Footer.jsx";
 import Preloader from "../Preloader/Preloader.jsx";
 import NothingFound from "../NothingFound/NothingFound.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
+import RegisterModal from "../RegisterModal/RegisterModal.jsx";
+import SuccessModal from "../SuccessModal/SuccessModal.jsx";
 import { getNews } from "../../utils/NewsApi.js";
 import "./Main.css";
 
@@ -13,7 +15,8 @@ function Main() {
   const [articles, setArticles] = useState([]);
   const [searchedKeyword, setSearchedKeyword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [activeModal, setActiveModal] = useState(null);
+  const [registerError, setRegisterError] = useState("");
 
   function handleSearch(keyword) {
     setIsLoading(true);
@@ -34,16 +37,32 @@ function Main() {
   }
 
   function handleLoginClick() {
-    setIsLoginModalOpen(true);
+    setActiveModal("login");
+  }
+
+  function handleRegisterClick() {
+    setActiveModal("register");
   }
 
   function closeAllModals() {
-    setIsLoginModalOpen(false);
+    setActiveModal(null);
   }
 
   function handleLoginSubmit({ email, password }) {
     console.log("Email:", email);
     console.log("Password:", password);
+  }
+
+  function handleRegisterSubmit({ email, password, username }) {
+    console.log("Registration:", { email, password, username });
+
+    if (email.trim().toLowerCase() === "used@test.com") {
+      setRegisterError("This email is not available");
+      return;
+    }
+
+    setRegisterError("");
+    setActiveModal("success");
   }
 
   return (
@@ -66,8 +85,27 @@ function Main() {
 
       <Footer />
 
-      {isLoginModalOpen && (
-        <LoginModal onClose={closeAllModals} onSubmit={handleLoginSubmit} />
+      {activeModal === "login" && (
+        <LoginModal
+          onClose={closeAllModals}
+          onSubmit={handleLoginSubmit}
+          onRegisterClick={handleRegisterClick}
+        />
+      )}
+
+      {activeModal === "register" && (
+        <RegisterModal
+          onClose={closeAllModals}
+          onSubmit={handleRegisterSubmit}
+          onLoginClick={handleLoginClick}
+          serverError={registerError}
+        />
+      )}
+      {activeModal === "success" && (
+        <SuccessModal
+          onClose={closeAllModals}
+          onLoginClick={handleLoginClick}
+        />
       )}
     </>
   );

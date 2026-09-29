@@ -2,7 +2,7 @@ import "./ModalWithForm.css";
 import closeIcon from "../../assets/close_btn.svg";
 import { useEffect } from "react";
 
-function ModalWithForm({ title, children, onClose }) {
+function ModalWithForm({ title, children, onClose, containerClassName = "" }) {
   useEffect(() => {
     function handleEscape(event) {
       if (event.key === "Escape") {
@@ -17,7 +17,7 @@ function ModalWithForm({ title, children, onClose }) {
   return (
     <div className="modal" onClick={onClose}>
       <div
-        className="modal__container"
+        className={`modal__container ${containerClassName}`}
         onClick={(event) => event.stopPropagation()}
       >
         <button

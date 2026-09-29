@@ -1,9 +1,11 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import { useState } from "react";
 
-function LoginModal({ onClose, onSubmit }) {
+function LoginModal({ onClose, onSubmit, onRegisterClick }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isFormValid = isEmailValid && password.length > 7;
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -26,6 +28,9 @@ function LoginModal({ onClose, onSubmit }) {
           onChange={(event) => setEmail(event.target.value)}
           required
         />
+        {email && !isEmailValid && (
+          <span className="modal__error">Invalid email address</span>
+        )}
         <label className="modal__label" htmlFor="login-password">
           Password
         </label>
@@ -37,15 +42,20 @@ function LoginModal({ onClose, onSubmit }) {
           name="password"
           placeholder="Enter password"
           value={password}
+          minLength={7}
           onChange={(event) => setPassword(event.target.value)}
           required
         />
-        <button type="submit" className="modal__submit">
+        <button type="submit" className="modal__submit" disabled={!isFormValid}>
           Sign in
         </button>
         <p className="modal__switch">
           or{" "}
-          <button type="button" className="modal__switch-button">
+          <button
+            type="button"
+            className="modal__switch-button"
+            onClick={onRegisterClick}
+          >
             Sign up
           </button>
         </p>
