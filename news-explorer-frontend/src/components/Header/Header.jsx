@@ -2,10 +2,15 @@ import Navigation from "../Navigation/Navigation.jsx";
 import SearchForm from "../SearchForm/SearchForm.jsx";
 import "./Header.css";
 
-function Header({ onSearch, onLoginClick }) {
+function Header({ onSearch, onLoginClick, isLoggedIn, currentUser, onLogout }) {
   return (
     <header className="header">
-      <Navigation onLoginClick={onLoginClick} />
+      <Navigation
+        onLoginClick={onLoginClick}
+        isLoggedIn={isLoggedIn}
+        currentUser={currentUser}
+        onLogout={onLogout}
+      />
 
       <div className="header__content">
         <h1 className="header__title">What's going on in the world?</h1>

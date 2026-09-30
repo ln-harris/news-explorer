@@ -11,7 +11,7 @@ import SuccessModal from "../SuccessModal/SuccessModal.jsx";
 import { getNews } from "../../utils/NewsApi.js";
 import "./Main.css";
 
-function Main() {
+function Main({ isLoggedIn, currentUser, onLogin, onLogout }) {
   const [articles, setArticles] = useState([]);
   const [searchedKeyword, setSearchedKeyword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -49,8 +49,9 @@ function Main() {
   }
 
   function handleLoginSubmit({ email, password }) {
-    console.log("Email:", email);
-    console.log("Password:", password);
+    console.log("Login:", { email, password });
+    onLogin();
+    closeAllModals();
   }
 
   function handleRegisterSubmit({ email, password, username }) {
@@ -67,7 +68,13 @@ function Main() {
 
   return (
     <>
-      <Header onSearch={handleSearch} onLoginClick={handleLoginClick} />
+      <Header
+        onSearch={handleSearch}
+        onLoginClick={handleLoginClick}
+        isLoggedIn={isLoggedIn}
+        currentUser={currentUser}
+        onLogout={onLogout}
+      />
 
       <main>
         {isLoading && <Preloader />}

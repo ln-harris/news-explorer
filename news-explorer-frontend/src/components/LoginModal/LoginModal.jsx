@@ -5,7 +5,7 @@ function LoginModal({ onClose, onSubmit, onRegisterClick }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  const isFormValid = isEmailValid && password.length > 7;
+  const isFormValid = isEmailValid && password.length > 6;
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -46,6 +46,11 @@ function LoginModal({ onClose, onSubmit, onRegisterClick }) {
           onChange={(event) => setPassword(event.target.value)}
           required
         />
+        {password && password.length < 7 && (
+          <span className="modal__error">
+            Password must be at least 7 characters
+          </span>
+        )}
         <button type="submit" className="modal__submit" disabled={!isFormValid}>
           Sign in
         </button>
