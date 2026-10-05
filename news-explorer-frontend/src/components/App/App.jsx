@@ -11,6 +11,8 @@ function App() {
     name: "",
   });
 
+  const [savedArticles, setSavedArticles] = useState([]);
+
   function handleLogin() {
     setIsLoggedIn(true);
     setCurrentUser({ name: "Elise" });
@@ -19,6 +21,28 @@ function App() {
   function handleLogout() {
     setIsLoggedIn(false);
     setCurrentUser({ name: "" });
+  }
+
+  function handleDeleteArticle(articleToDelete) {
+    setSavedArticles((currentArticles) =>
+      currentArticles.filter((article) => article.url !== articleToDelete.url),
+    );
+  }
+
+  function handleSaveArticle(articleToSave) {
+    setSavedArticles((currentArticles) => {
+      const articleIsSaved = currentArticles.some(
+        (article) => article.url === articleToSave.url,
+      );
+
+      if (articleIsSaved) {
+        return currentArticles.filter(
+          (article) => article.url !== articleToSave.url,
+        );
+      }
+
+      return [...currentArticles, articleToSave];
+    });
   }
 
   return (
@@ -32,6 +56,8 @@ function App() {
               currentUser={currentUser}
               onLogin={handleLogin}
               onLogout={handleLogout}
+              savedArticles={savedArticles}
+              onSaveArticle={handleSaveArticle}
             />
           }
         />
@@ -42,6 +68,8 @@ function App() {
               isLoggedIn={isLoggedIn}
               currentUser={currentUser}
               onLogout={handleLogout}
+              savedArticles={savedArticles}
+              onDeleteArticle={handleDeleteArticle}
             />
           }
         />

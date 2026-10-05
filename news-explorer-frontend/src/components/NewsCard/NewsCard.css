@@ -2,6 +2,7 @@
   position: relative;
   min-width: 0;
   overflow: hidden;
+  height: 576px;
 
   background-color: #fff;
   border-radius: 16px;
@@ -44,6 +45,12 @@
 .news-card__title {
   margin: 12px 0 16px;
 
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+
   color: rgba(26, 27, 34, 1);
   font-family: "Roboto Slab", Georgia, serif;
   font-weight: 400;
@@ -55,6 +62,12 @@
 .news-card__description {
   margin: 0 0 18px;
 
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+
   color: rgba(26, 27, 34, 1);
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 400;
@@ -65,6 +78,10 @@
 
 .news-card__source {
   margin: auto 0 0;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
   color: rgba(182, 188, 191, 1);
   font-family: "Roboto Slab", Georgia, serif;
@@ -79,13 +96,85 @@
   position: absolute;
   top: 24px;
   right: 24px;
+  z-index: 1;
 
   width: 40px;
   height: 40px;
-  padding: 0;
+  padding: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   background-color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.news-card__keyword {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 1;
+
+  padding: 8px 12px;
+  background-color: #fff;
+  border-radius: 10px;
+
+  color: #000;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.news-card__delete-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 1;
+
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+
+  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.news-card__button-icon {
+  display: block;
+  max-width: 24px;
+  max-height: 24px;
+}
+
+.news-card__button-icon_type_hover {
+  display: none;
+}
+
+.news-card__delete-button:hover .news-card__button-icon_type_default {
+  display: none;
+}
+
+.news-card__delete-button:hover .news-card__button-icon_type_hover {
+  display: block;
+}
+
+.news-card__bookmark-icon_type_hover {
+  display: none;
+}
+
+.news-card__bookmark:hover .news-card__bookmark-icon_type_default {
+  display: none;
+}
+
+.news-card__bookmark:hover .news-card__bookmark-icon_type_hover {
+  display: block;
 }

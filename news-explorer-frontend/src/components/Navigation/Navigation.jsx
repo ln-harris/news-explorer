@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Navigation.css";
 import logoutIcon from "../../assets/logout.svg";
+import logoutBlackIcon from "../../assets/logout-black.svg";
 
 function Navigation({
   onLoginClick,
@@ -50,7 +51,11 @@ function Navigation({
                   onClick={onLogout}
                   aria-label="Log out"
                 >
-                  <img src={logoutIcon} alt="" className="nav__logout-icon" />
+                  <img
+                    src={theme === "light" ? logoutBlackIcon : logoutIcon}
+                    alt=""
+                    className="nav__logout-icon"
+                  />
                 </button>
               </div>
             </li>

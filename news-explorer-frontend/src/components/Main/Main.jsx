@@ -3,7 +3,7 @@ import Header from "../Header/Header.jsx";
 import About from "../About/About.jsx";
 import NewCardList from "../NewCardList/NewCardList.jsx";
 import Footer from "../Footer/Footer.jsx";
-import Preloader from "../Preloader/Preloader.jsx";
+import CirclePreloader from "../Preloader/CirclePreloader.jsx";
 import NothingFound from "../NothingFound/NothingFound.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
@@ -11,7 +11,14 @@ import SuccessModal from "../SuccessModal/SuccessModal.jsx";
 import { getNews } from "../../utils/NewsApi.js";
 import "./Main.css";
 
-function Main({ isLoggedIn, currentUser, onLogin, onLogout }) {
+function Main({
+  isLoggedIn,
+  currentUser,
+  onLogin,
+  onLogout,
+  savedArticles,
+  onSaveArticle,
+}) {
   const [articles, setArticles] = useState([]);
   const [searchedKeyword, setSearchedKeyword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -38,6 +45,18 @@ function Main({ isLoggedIn, currentUser, onLogin, onLogout }) {
 
   function handleLoginClick() {
     setActiveModal("login");
+  }
+
+  function handleSaveClick(article) {
+    if (!isLoggedIn) {
+      handleLoginClick();
+      return;
+    }
+
+    onSaveArticle({
+      ...article,
+      keyword: searchedKeyword,
+    });
   }
 
   function handleRegisterClick() {
@@ -77,10 +96,15 @@ function Main({ isLoggedIn, currentUser, onLogin, onLogout }) {
       />
 
       <main>
-        {isLoading && <Preloader />}
+        {isLoading && <CirclePreloader />}
 
         {!isLoading && articles.length > 0 && (
-          <NewCardList key={searchedKeyword} articles={articles} />
+          <NewCardList
+            key={searchedKeyword}
+            articles={articles}
+            savedArticles={savedArticles}
+            onSaveArticle={handleSaveClick}
+          />
         )}
 
         {!isLoading && searchedKeyword !== "" && articles.length === 0 && (

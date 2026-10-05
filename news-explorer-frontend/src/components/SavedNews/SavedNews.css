@@ -53,6 +53,14 @@
 .saved-news__cards {
   min-height: 300px;
   padding: 62px 102px;
-
   background-color: #f5f6f7;
+}
+
+.saved-news__card-list {
+  max-width: 1232px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
 }
