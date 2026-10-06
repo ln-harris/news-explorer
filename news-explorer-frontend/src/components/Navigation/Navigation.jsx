@@ -21,7 +21,9 @@ function Navigation({
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `nav__link ${isActive ? "nav__link_active" : ""}`
+              `nav__link nav__link_type_home ${
+                isActive ? "nav__link_active" : ""
+              }`
             }
           >
             Home
@@ -34,7 +36,9 @@ function Navigation({
               <NavLink
                 to="/saved-news"
                 className={({ isActive }) =>
-                  `nav__link ${isActive ? "nav__link_active" : ""}`
+                  `nav__link nav__link_type_saved ${
+                    isActive ? "nav__link_active" : ""
+                  }`
                 }
               >
                 Saved articles

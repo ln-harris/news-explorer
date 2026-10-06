@@ -70,3 +70,17 @@
   width: 20px;
   height: 20px;
 }
+
+@media screen and (max-width: 768px) {
+  .footer__content {
+    min-height: 64px;
+    padding: 24px 40px 18px;
+  }
+  s .footer__link {
+    margin-top: 21px;
+  }
+
+  .footer__socials {
+    gap: 24px;
+  }
+}

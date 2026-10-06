@@ -40,3 +40,26 @@
   font-size: 18px;
   line-height: 24px;
 }
+
+@media screen and (max-width: 768px) {
+  .header {
+    min-height: 400px;
+  }
+
+  .header__content {
+    max-width: 452px;
+    align-items: flex-start;
+  }
+
+  .header__title {
+    width: 385px;
+    margin: 40px 0 16px;
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .header__description {
+    width: 452px;
+    margin: 0 0 48px;
+  }
+}

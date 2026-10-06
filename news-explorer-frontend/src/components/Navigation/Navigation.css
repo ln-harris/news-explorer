@@ -68,10 +68,6 @@
   border-bottom-color: #fff;
 }
 
-.nav__link:hover {
-  opacity: 0.8;
-}
-
 .nav__button {
   width: 176px;
   height: 48px;
@@ -156,4 +152,53 @@
 
 .nav_theme_light .nav__username {
   color: #1a1b22;
+}
+
+@media screen and (max-width: 768px) {
+  .nav {
+    height: 64px;
+    padding: 0 40px;
+  }
+
+  .nav__links,
+  .nav__links_logged-in {
+    gap: 16px;
+  }
+
+  .nav__link {
+    width: auto;
+    font-size: 16px;
+  }
+
+  .nav__link_type_home {
+    width: 64px;
+  }
+
+  .nav__link_type_saved {
+    width: 160px;
+    white-space: nowrap;
+  }
+
+  .nav__link_type_home.nav__link_active::after {
+    width: 60px;
+  }
+
+  .nav__link_type_saved.nav__link_active::after {
+    width: 160px;
+  }
+
+  .nav__button {
+    width: 152px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .nav__user {
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  .nav__username {
+    font-size: 16px;
+  }
 }

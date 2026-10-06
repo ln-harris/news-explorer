@@ -50,3 +50,30 @@
 .about__text:last-child {
   margin-bottom: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .about {
+    min-height: auto;
+    padding: 40px;
+  }
+
+  .about__container {
+    gap: 32px;
+  }
+
+  .about__image {
+    width: 232px;
+    height: 232px;
+    flex-shrink: 0;
+  }
+
+  .about__content {
+    max-width: 424px;
+  }
+
+  .about__title {
+    margin-bottom: 16px;
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
