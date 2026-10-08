@@ -154,6 +154,10 @@
   color: #1a1b22;
 }
 
+.nav__menu-button {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .nav {
     height: 64px;
@@ -200,5 +204,111 @@
 
   .nav__username {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav {
+    position: relative;
+    z-index: 10;
+
+    height: 56px;
+    padding: 0 16px;
+  }
+
+  .nav__logo {
+    width: auto;
+    height: auto;
+
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .nav__links {
+    display: none;
+  }
+
+  .nav__links_mobile-open {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    z-index: 2;
+
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+
+    background-color: #1a1b22;
+  }
+
+  .nav__links_mobile-open .nav__item {
+    width: 100%;
+    height: auto;
+  }
+
+  .nav__links_mobile-open .nav__link {
+    width: 100%;
+    height: 48px;
+    justify-content: flex-start;
+
+    border-bottom: none;
+  }
+
+  .nav__links_mobile-open .nav__button {
+    width: 100%;
+    height: 56px;
+  }
+
+  .nav__menu-button {
+    width: 24px;
+    height: 24px;
+    padding: 4px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav__menu-line {
+    display: block;
+    width: 16px;
+    height: 2px;
+
+    background-color: #fff;
+  }
+
+  .nav_theme_light .nav__menu-line {
+    background-color: #1a1b22;
+  }
+
+  .nav__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .nav_theme_light .nav__links_mobile-open .nav__link {
+    color: #fff;
+  }
+
+  .nav_theme_light .nav__links_mobile-open .nav__user {
+    border-color: #fff;
+  }
+
+  .nav_theme_light .nav__links_mobile-open .nav__username {
+    color: #fff;
   }
 }

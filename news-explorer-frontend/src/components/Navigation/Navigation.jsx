@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Navigation.css";
 import logoutIcon from "../../assets/logout.svg";
@@ -10,13 +11,47 @@ function Navigation({
   onLogout,
   theme,
 }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
+  function handleSignInClick() {
+    setIsMenuOpen(false);
+    onLoginClick();
+  }
+
   return (
     <nav className={`nav ${theme === "light" ? "nav_theme_light" : ""}`}>
       <Link to="/" className="nav__logo">
         NewsExplorer
       </Link>
 
-      <ul className={`nav__links ${isLoggedIn ? "nav__links_logged-in" : ""}`}>
+      <button
+        type="button"
+        className="nav__menu-button"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-label={
+          isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+        }
+        aria-expanded={isMenuOpen}
+      >
+        <span className="nav__menu-line"></span>
+        <span className="nav__menu-line"></span>
+      </button>
+
+      <ul
+        className={`nav__links ${
+          isLoggedIn ? "nav__links_logged-in" : ""
+        } ${isMenuOpen ? "nav__links_mobile-open" : ""}`}
+      >
         <li className="nav__item">
           <NavLink
             to="/"
@@ -56,7 +91,11 @@ function Navigation({
                   aria-label="Log out"
                 >
                   <img
-                    src={theme === "light" ? logoutBlackIcon : logoutIcon}
+                    src={
+                      theme === "light" && !isMenuOpen
+                        ? logoutBlackIcon
+                        : logoutIcon
+                    }
                     alt=""
                     className="nav__logout-icon"
                   />
@@ -69,13 +108,19 @@ function Navigation({
             <button
               type="button"
               className="nav__button"
-              onClick={onLoginClick}
+              onClick={handleSignInClick}
             >
               Sign in
             </button>
           </li>
         )}
       </ul>
+      {isMenuOpen && !isLoggedIn && (
+        <div
+          className="nav__overlay"
+          onClick={() => setIsMenuOpen(false)}
+        ></div>
+      )}
     </nav>
   );
 }

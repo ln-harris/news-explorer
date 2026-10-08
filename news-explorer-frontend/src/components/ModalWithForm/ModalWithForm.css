@@ -190,3 +190,34 @@
   width: 430px;
   min-height: 182px;
 }
+
+@media screen and (max-width: 480px) {
+  .modal {
+    align-items: flex-start;
+    padding-top: 56px;
+  }
+
+  .modal__container {
+    width: 100%;
+    min-height: calc(100dvh - 56px);
+    padding: 22px 16px;
+
+    border-radius: 16px 16px 0 0;
+  }
+
+  .modal__close {
+    top: -48px;
+    right: 16px;
+
+    width: 24px;
+    height: 24px;
+  }
+
+  .modal__form {
+    margin-top: 22px;
+  }
+
+  .modal__submit {
+    height: 64px;
+  }
+}
