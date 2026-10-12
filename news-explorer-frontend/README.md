@@ -81,4 +81,4 @@ Coming Soon
 
 ## Project Pitch Video
 
-- [Watch Pitch Video](ADD_PITCH_VIDEO_LINK_HERE)
+- [Watch Pitch Video](https://www.loom.com/share/b4883701f3a04188bd39745b3bceb1c0)
