@@ -75,10 +75,10 @@ Coming Soon
 
 ## Plans for Improvement
 
-- 🔐 Connect the application to a backend authentication system
-- 💾 Store users and saved articles in a database
-- 🔄 Preserve the user’s session after refreshing the browser
+- Connect the application to a backend authentication system
+- Store users and saved articles in a database
+- Preserve the user’s session after refreshing the browser
 
 ## Project Pitch Video
 
-- [Pitch Video](ADD_PITCH_VIDEO_LINK_HERE)
+- [Watch Pitch Video](ADD_PITCH_VIDEO_LINK_HERE)
