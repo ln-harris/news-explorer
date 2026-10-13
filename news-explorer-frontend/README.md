@@ -47,7 +47,7 @@ Coming Soon
 
 ## Deployment
 
-💻 Live Site: [View project here](ADD_DEPLOYMENT_LINK_HERE)
+💻 Live Site: [View project here](https://ln-harris.github.io/news-explorer/)
 
 ## Images of the Site
 
