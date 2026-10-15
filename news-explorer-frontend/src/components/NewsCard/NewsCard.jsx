@@ -5,7 +5,14 @@ import bookmarkNormal from "../../assets/bookmark-normal.svg";
 import bookmarkHover from "../../assets/bookmark-hover.svg";
 import bookmarkMarked from "../../assets/bookmark-marked.svg";
 
-function NewsCard({ article, isSaved, isBookmarked, onSave, onDelete }) {
+function NewsCard({
+  article,
+  isSaved,
+  isBookmarked,
+  isLoggedIn,
+  onSave,
+  onDelete,
+}) {
   const formattedDate = new Date(article.publishedAt).toLocaleDateString(
     "en-US",
     {
@@ -39,53 +46,63 @@ function NewsCard({ article, isSaved, isBookmarked, onSave, onDelete }) {
         </div>
       </a>
       {isSaved ? (
-        <button
-          type="button"
-          className="news-card__delete-button"
-          aria-label="Delete article"
-          onClick={() => onDelete(article)}
-        >
-          <img
-            src={trashIcon}
-            alt=""
-            className="news-card__button-icon news-card__button-icon_type_default"
-          />
-
-          <img
-            src={trashIconHover}
-            alt=""
-            className="news-card__button-icon news-card__button-icon_type_hover"
-          />
-        </button>
-      ) : (
-        <button
-          type="button"
-          className="news-card__bookmark"
-          aria-label="Save article"
-          onClick={() => onSave(article)}
-        >
-          {isBookmarked ? (
+        <>
+          <button
+            type="button"
+            className="news-card__delete-button"
+            aria-label="Remove from saved"
+            onClick={() => onDelete(article)}
+          >
             <img
-              src={bookmarkMarked}
-              alt=""
-              className="news-card__button-icon"
+              src={trashIcon}
+              alt="Trash can"
+              className="news-card__button-icon news-card__button-icon_type_default"
             />
-          ) : (
-            <>
-              <img
-                src={bookmarkNormal}
-                alt=""
-                className="news-card__button-icon news-card__bookmark-icon_type_default"
-              />
+            <img
+              src={trashIconHover}
+              alt="Trash can on hover"
+              className="news-card__button-icon news-card__button-icon_type_hover"
+            />
+          </button>
 
+          <span className="news-card__delete-tooltip">
+            Remove from saved
+          </span>
+        </>
+      ) : (
+        <>
+          <button
+            type="button"
+            className="news-card__bookmark"
+            aria-label="Save article"
+            onClick={() => onSave(article)}
+          >
+            {isBookmarked ? (
               <img
-                src={bookmarkHover}
-                alt=""
-                className="news-card__button-icon news-card__bookmark-icon_type_hover"
+                src={bookmarkMarked}
+                alt="Filled bookmark for a saved article"
+                className="news-card__button-icon"
               />
-            </>
+            ) : (
+              <>
+                <img
+                  src={bookmarkNormal}
+                  alt="Bookmark outline"
+                  className="news-card__button-icon news-card__bookmark-icon_type_default"
+                />
+
+                <img
+                  src={bookmarkHover}
+                  alt="Bookmark outline on hover"
+                  className="news-card__button-icon news-card__bookmark-icon_type_hover"
+                />
+              </>
+            )}
+          </button>
+          {!isLoggedIn && (
+            <span className="news-card__tooltip">Sign in to save articles</span>
           )}
-        </button>
+        </>
       )}
     </article>
   );

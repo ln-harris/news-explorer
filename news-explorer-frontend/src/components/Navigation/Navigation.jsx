@@ -81,26 +81,24 @@ function Navigation({
             </li>
 
             <li className="nav__item">
-              <div className="nav__user">
+              <button
+                type="button"
+                className="nav__user"
+                onClick={onLogout}
+                aria-label={`Log out ${currentUser.name}`}
+              >
                 <span className="nav__username">{currentUser.name}</span>
 
-                <button
-                  type="button"
-                  className="nav__logout"
-                  onClick={onLogout}
-                  aria-label="Log out"
-                >
-                  <img
-                    src={
-                      theme === "light" && !isMenuOpen
-                        ? logoutBlackIcon
-                        : logoutIcon
-                    }
-                    alt=""
-                    className="nav__logout-icon"
-                  />
-                </button>
-              </div>
+                <img
+                  src={
+                    theme === "light" && !isMenuOpen
+                      ? logoutBlackIcon
+                      : logoutIcon
+                  }
+                  alt="Log out icon"
+                  className="nav__logout-icon"
+                />
+              </button>
             </li>
           </>
         ) : (

@@ -2,7 +2,12 @@ import { useState } from "react";
 import NewsCard from "../NewsCard/NewsCard.jsx";
 import "./NewCardList.css";
 
-function NewCardList({ articles, savedArticles, onSaveArticle }) {
+function NewCardList({
+  articles,
+  savedArticles,
+  onSaveArticle,
+  isLoggedIn,
+}) {
   const [visibleCards, setVisibleCards] = useState(3);
 
   function handleShowMore() {
@@ -13,18 +18,20 @@ function NewCardList({ articles, savedArticles, onSaveArticle }) {
     <section className="new-card-list">
       <h2 className="news-card-list__title">Search results</h2>
 
-      <div className="news-card-list__cards">
+      <ul className="news-card-list__cards">
         {articles.slice(0, visibleCards).map((article) => (
-          <NewsCard
-            key={article.url}
-            article={article}
-            isBookmarked={savedArticles.some(
-              (savedArticle) => savedArticle.url === article.url,
-            )}
-            onSave={onSaveArticle}
-          />
+          <li className="news-card-list__item" key={article.url}>
+            <NewsCard
+              article={article}
+              isLoggedIn={isLoggedIn}
+              isBookmarked={savedArticles.some(
+                (savedArticle) => savedArticle.url === article.url,
+              )}
+              onSave={onSaveArticle}
+            />
+          </li>
         ))}
-      </div>
+      </ul>
 
       {visibleCards < articles.length && (
         <button

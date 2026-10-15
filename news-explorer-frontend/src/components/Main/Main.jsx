@@ -104,6 +104,7 @@ function Main({
             articles={articles}
             savedArticles={savedArticles}
             onSaveArticle={handleSaveClick}
+            isLoggedIn={isLoggedIn}
           />
         )}
 

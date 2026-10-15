@@ -26,7 +26,7 @@ function ModalWithForm({ title, children, onClose, containerClassName = "" }) {
           onClick={onClose}
           aria-label="Close modal"
         >
-          <img src={closeIcon} alt="" className="modal__close-icon" />
+          <img src={closeIcon} alt="Close icon" className="modal__close-icon" />
         </button>
 
         <h2 className="modal__title">{title}</h2>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="footer__content">
+    <footer className="footer__content">
       <p className="footer__copyright">
         &copy; 2024 Supersite, Powered by News API
       </p>
@@ -55,7 +55,7 @@ function Footer() {
           </div>
         </li>
       </ul>
-    </div>
+    </footer>
   );
 }
 

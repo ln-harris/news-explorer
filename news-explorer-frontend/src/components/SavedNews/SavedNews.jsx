@@ -54,16 +54,17 @@ function SavedNews({
       </header>
 
       <main className="saved-news__cards">
-        <div className="saved-news__card-list">
+        <ul className="saved-news__card-list">
           {savedArticles.map((article) => (
-            <NewsCard
-              key={article.url}
-              article={article}
-              isSaved
-              onDelete={onDeleteArticle}
-            />
+            <li className="saved-news__card-item" key={article.url}>
+              <NewsCard
+                article={article}
+                isSaved
+                onDelete={onDeleteArticle}
+              />
+            </li>
           ))}
-        </div>
+        </ul>
       </main>
 
       <Footer />
