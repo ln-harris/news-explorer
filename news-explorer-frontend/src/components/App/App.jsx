@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Main from "../Main/Main.jsx";
 import SavedNews from "../SavedNews/SavedNews.jsx";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
 import "./App.css";
 
 function App() {
@@ -64,13 +65,15 @@ function App() {
         <Route
           path="/saved-news"
           element={
-            <SavedNews
-              isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
-              onLogout={handleLogout}
-              savedArticles={savedArticles}
-              onDeleteArticle={handleDeleteArticle}
-            />
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <SavedNews
+                isLoggedIn={isLoggedIn}
+                currentUser={currentUser}
+                onLogout={handleLogout}
+                savedArticles={savedArticles}
+                onDeleteArticle={handleDeleteArticle}
+              />
+            </ProtectedRoute>
           }
         />
       </Routes>

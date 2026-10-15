@@ -9,7 +9,6 @@ import LoginModal from "../LoginModal/LoginModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import SuccessModal from "../SuccessModal/SuccessModal.jsx";
 import { getNews } from "../../utils/NewsApi.js";
-import "./Main.css";
 
 function Main({
   isLoggedIn,
