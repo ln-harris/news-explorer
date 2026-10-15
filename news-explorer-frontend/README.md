@@ -1,16 +1,84 @@
-# React + Vite
+# News Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+News Explorer is a responsive web application that allows users to search for current news articles by keyword. Users can open the original articles, simulate signing in, and save articles to their personal collection.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 🔎 Searches for news articles by keyword using NewsAPI
+- 📰 Displays article images, titles, descriptions, sources, and publication dates
+- 🔗 Opens original news articles in a new browser tab
+- ⏳ Displays a preloader while search results are loading
+- 📭 Displays a “Nothing found” message when no articles match the search
+- 🔐 Includes sign-in and registration modals with form validation
+- 👤 Displays logged-in and logged-out navigation states
+- 🔖 Allows logged-in users to save and unsave articles
+- 🗑️ Allows users to remove articles from the saved articles page
+- 🏷️ Displays a summary of saved article keywords
+- 📱 Adapts to desktop, tablet, and mobile screen sizes
+- ☰ Includes a responsive mobile navigation menu
+- 🧭 Uses React Router for the Home and Saved Articles pages
 
-## React Compiler
+## Backend Repository
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Coming Soon
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend
+
+- JavaScript
+- React
+- React Router
+- Vite
+- HTML5
+- CSS3
+- NewsAPI
+- BEM methodology
+- Responsive web design
+
+### Development Tools
+
+- Git
+- GitHub
+- ESLint
+- Prettier
+- Visual Studio Code
+- Figma
+
+## Deployment
+
+💻 Live Site: [View project here](https://ln-harris.github.io/news-explorer/)
+
+## Images of the Site
+
+### Home page
+
+![Home page](./src/assets/home-page.png)
+
+### Sign up
+
+![Sign up](./src/assets/sign-up.png)
+
+### Search Results
+
+![Search results](./src/assets/search-results.png)
+
+### Saved Articles Page
+
+![Saved articles](./src/assets/saved-news.png)
+
+### Mobile Views
+
+![Home](./src/assets/mobile-home-page.png)
+
+![Saved Articles](./src/assets/mobile-saved-news.png)
+
+## Plans for Improvement
+
+- Connect the application to a backend authentication system
+- Store users and saved articles in a database
+- Preserve the user’s session after refreshing the browser
+
+## Project Pitch Video
+
+- [Watch Pitch Video](https://www.loom.com/share/b4883701f3a04188bd39745b3bceb1c0)

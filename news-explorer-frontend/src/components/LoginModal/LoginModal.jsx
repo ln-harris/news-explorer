@@ -1,0 +1,72 @@
+import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
+import { useState } from "react";
+
+function LoginModal({ onClose, onSubmit, onRegisterClick }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isFormValid = isEmailValid && password.length > 6;
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    onSubmit({ email, password });
+  }
+  return (
+    <ModalWithForm title="Sign in" onClose={onClose}>
+      <form className="modal__form" onSubmit={handleSubmit}>
+        <label className="modal__label" htmlFor="login-email">
+          Email
+        </label>
+
+        <input
+          id="login-email"
+          className="modal__input"
+          type="email"
+          name="email"
+          placeholder="Enter email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          required
+        />
+        {email && !isEmailValid && (
+          <span className="modal__error">Invalid email address</span>
+        )}
+        <label className="modal__label" htmlFor="login-password">
+          Password
+        </label>
+
+        <input
+          id="login-password"
+          className="modal__input"
+          type="password"
+          name="password"
+          placeholder="Enter password"
+          value={password}
+          minLength={7}
+          onChange={(event) => setPassword(event.target.value)}
+          required
+        />
+        {password && password.length < 7 && (
+          <span className="modal__error">
+            Password must be at least 7 characters
+          </span>
+        )}
+        <button type="submit" className="modal__submit" disabled={!isFormValid}>
+          Sign in
+        </button>
+        <p className="modal__switch">
+          or{" "}
+          <button
+            type="button"
+            className="modal__switch-button"
+            onClick={onRegisterClick}
+          >
+            Sign up
+          </button>
+        </p>
+      </form>
+    </ModalWithForm>
+  );
+}
+
+export default LoginModal;
