@@ -2,8 +2,8 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import { useState } from "react";
 
 function LoginModal({ onClose, onSubmit, onRegisterClick }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("demo@example.com");
+  const [password, setPassword] = useState("DemoPass123!");
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const isFormValid = isEmailValid && password.length > 6;
 
@@ -14,6 +14,9 @@ function LoginModal({ onClose, onSubmit, onRegisterClick }) {
   return (
     <ModalWithForm title="Sign in" onClose={onClose}>
       <form className="modal__form" onSubmit={handleSubmit}>
+        <p className="modal__demo-note">
+          Try the demo—credentials are filled in. Just click Sign in.
+        </p>
         <label className="modal__label" htmlFor="login-email">
           Email
         </label>

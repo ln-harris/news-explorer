@@ -69,6 +69,13 @@
   margin-top: 22px;
 }
 
+.modal__demo-note {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #1a1b22;
+}
+
 .modal__label {
   margin-bottom: 8px;
 

@@ -49,6 +49,19 @@ Coming Soon
 
 💻 Live Site: [View project here](https://ln-harris.github.io/news-explorer/)
 
+## Demo Access
+
+To try the demo, click **Sign in** and enter:
+
+- Email: demo@example.com
+- Password: DemoPass123!
+
+You can also try the sign-up form using **Elise** as the username and the credentials above. Signing up displays a success message; you can then sign in to explore the demo.
+
+Authentication is simulated; no real account is created. The demo signs you in as **Elise**. Saved articles and login state reset when the page is refreshed.
+
+Please use demo credentials rather than personal passwords.
+
 ## Images of the Site
 
 ### Home page
